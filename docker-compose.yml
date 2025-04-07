@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      - app-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # app-ingest:
+  #   build:
+  #     context: ./app
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   command: python ingest_data.py
+  #   environment:
+  #     POSTGRES_USER: ${POSTGRES_USER}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  #     POSTGRES_HOST: ${POSTGRES_HOST}
+  #     POSTGRES_PORT: ${POSTGRES_PORT}
+  #     POSTGRES_DB: ${POSTGRES_DB}
+  #     DATABASE_URL: ${DATABASE_URL}
+  #     CSV_FILE_PATH: ${CSV_FILE_PATH}
+  #   networks:
+  #     - app-network
+  #   volumes:
+  #     - ./data/cafe_sales.csv:/app/data/cafe_sales.csv
+
+  app-api:
+    build:
+      context: ./app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: uvicorn app:app --host 0.0.0.0 --port ${API_PORT}
+    ports:
+      - ${API_PORT}:8000
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      DATABASE_URL: ${DATABASE_URL}
+      CSV_FILE_PATH: ${CSV_FILE_PATH}
+    volumes:
+      - ./data/cafe_sales.csv:/app/data/cafe_sales.csv
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
+
+
+      

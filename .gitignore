@@ -1,0 +1,12 @@
+# ignore python files
+__pycache__/
+
+# ignore env file
+.env
+
+# ignore data directory
+data/
+.venv/
+
+# ignore uv
+uv.lock
