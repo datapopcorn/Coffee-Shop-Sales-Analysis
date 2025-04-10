@@ -10,3 +10,9 @@ data/
 
 # ignore uv
 uv.lock
+
+# ignore terraform
+terraform/.terraform/*
+terraform/.terraform.lock.hcl
+terraform/keys/*
+terraform/terraform.tfstate
