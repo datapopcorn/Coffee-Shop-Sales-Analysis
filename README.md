@@ -217,9 +217,11 @@ The dashboard is built using **Streamlit** and showcases interactive visualizati
 
 - **Tile 1 – Item Quantity Pie Chart**: Visualizes the distribution of total quantity sold per item category, offering insights into the most popular products (e.g., Coffee, Cake, Tea, etc.). This chart is helpful for understanding customer preferences.
 
+![Item Quantity Pie Chart](./piechart.png)
 
 - **Tile 2 – Monthly Sales Line Chart**: Tracks the monthly total sales volume across the dataset’s time range. This chart helps identify seasonality, business growth or dips over time.
 
+![Monthly Sales Line Chart](./linechart.png)
 
 Each chart includes labels, legends, and dynamic layout for better clarity and data storytelling.
 
