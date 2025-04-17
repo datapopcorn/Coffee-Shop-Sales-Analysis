@@ -153,7 +153,9 @@ def create_transaction(tx_in: TransactionIn, session: Session = Depends(get_sess
             payment_method_id=payment_method.payment_method_id,
             location=tx_in.location,
             total_spent=0,  # 暫時設為0，稍後更新
-            status="completed"
+            status="completed",
+            created_at=tx_in.created_at,
+            updated_at=tx_in.updated_at
         )
         session.add(new_transaction)
         # 先刷新以獲取 transaction_id

@@ -1,0 +1,60 @@
+{
+    "items": [
+      {
+        "name": "Cake",
+        "description": "Freshly baked daily cake slice with seasonal fruits",
+        "unit_price": 4.50,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Coffee",
+        "description": "Premium Arabica blend coffee, available hot or iced",
+        "unit_price": 3.50,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Tea",
+        "description": "Selection of fine organic teas",
+        "unit_price": 2.50,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Cookie",
+        "description": "Homemade butter cookie with chocolate chips",
+        "unit_price": 2.00,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Smoothie",
+        "description": "Fresh fruit smoothie with yogurt",
+        "unit_price": 5.00,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Sandwich",
+        "description": "Gourmet sandwich with fresh vegetables and premium meats",
+        "unit_price": 6.50,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Juice",
+        "description": "Freshly squeezed seasonal fruit juice",
+        "unit_price": 4.00,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Salad",
+        "description": "Garden fresh salad with house dressing",
+        "unit_price": 7.00,
+        "created_at": "2024-01-01T08:00:00",
+        "updated_at": "2024-01-01T08:00:00"
+      }
+    ]
+  }

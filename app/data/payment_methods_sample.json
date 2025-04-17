@@ -1,0 +1,19 @@
+{
+    "payment_methods": [
+      {
+        "name": "Digital Wallet",
+        "is_active": true,
+        "created_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Cash",
+        "is_active": true,
+        "created_at": "2024-01-01T08:00:00"
+      },
+      {
+        "name": "Credit Card",
+        "is_active": true,
+        "created_at": "2024-01-01T08:00:00"
+      }
+    ]
+  }

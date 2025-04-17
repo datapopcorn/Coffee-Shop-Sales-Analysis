@@ -1,0 +1,8 @@
+db-dtypes
+google-cloud-bigquery
+pandas
+plotly
+streamlit
+pygwalker
+python-dotenv
+dotenv

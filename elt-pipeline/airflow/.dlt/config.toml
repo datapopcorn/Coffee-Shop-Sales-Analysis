@@ -7,3 +7,9 @@ dlthub_telemetry = true
 
 [sources.sql_database]
 table = "table" # please set me up!
+
+[sources.filesystem]
+bucket_url = "gs://coffee_shop_analysis_bucket" # please set me up!
+
+[normalize.data_writer]
+disable_compression=true

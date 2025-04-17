@@ -14,25 +14,25 @@ variable "project" {
 variable "region" {
   description = "Region"
   #Update the below to your desired region
-  default     = "asia-east1"
+  default = "US"
 }
 
 variable "location" {
   description = "Project Location"
   #Update the below to your desired location
-  default     = "asia-east1"
+  default = "US"
 }
 
 variable "bq_dataset_name" {
   description = "My BigQuery Dataset Name"
   #Update the below to what you want your dataset to be called
-  default     = "coffee_shop_analysis"
+  default = "coffee_shop_analysis"
 }
 
 variable "gcs_bucket_name" {
   description = "My Storage Bucket Name"
   #Update the below to a unique bucket name
-  default     = "coffee_shop_analysis_bucket"
+  default = "coffee_shop_analysis_bucket"
 }
 
 variable "gcs_storage_class" {

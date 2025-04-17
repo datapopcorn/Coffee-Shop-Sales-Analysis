@@ -43,12 +43,12 @@ def load_select_tables_from_database() -> None:
 
     # Run the pipeline. The merge write disposition merges existing rows in the destination by primary key
     #info = pipeline.run(source_1, write_disposition="merge")
-    info_transactions = pipeline.run(source_transactions, write_disposition="replace")
-    info_items = pipeline.run(source_items, write_disposition="replace")
-    info_transaction_items = pipeline.run(source_transaction_items, write_disposition="replace")
-    info_customers = pipeline.run(source_customers, write_disposition="replace")
-    info_payment_methods = pipeline.run(source_payment_methods, write_disposition="replace")
-    info_transactions_static = pipeline.run(source_transactions_static, write_disposition="replace")
+    info_transactions = pipeline.run(source_transactions, write_disposition="replace", loader_file_format="parquet")
+    info_items = pipeline.run(source_items, write_disposition="replace", loader_file_format="parquet")
+    info_transaction_items = pipeline.run(source_transaction_items, write_disposition="replace", loader_file_format="parquet")
+    info_customers = pipeline.run(source_customers, write_disposition="replace", loader_file_format="parquet")
+    info_payment_methods = pipeline.run(source_payment_methods, write_disposition="replace", loader_file_format="parquet")
+    info_transactions_static = pipeline.run(source_transactions_static, write_disposition="replace", loader_file_format="parquet")
     print(info_transactions)
     print(info_items)
     print(info_transaction_items)
@@ -56,36 +56,8 @@ def load_select_tables_from_database() -> None:
     print(info_payment_methods)
     print(info_transactions_static)
 
-
-
-def load_entire_database() -> None:
-    """Use the sql_database source to completely load all tables in a database"""
-    pipeline = dlt.pipeline(pipeline_name="load_coffee_sales_data", destination='filesystem', dataset_name="coffee_sales")
-
-    # By default the sql_database source reflects all tables in the schema
-    # The database credentials are sourced from the `.dlt/secrets.toml` configuration
-    source = sql_database()
-
-    # Run the pipeline. For a large db this may take a while
-    info = pipeline.run(source, write_disposition="replace")
-    print(humanize.precisedelta(pipeline.last_trace.finished_at - pipeline.last_trace.started_at))
-    print(info)
-
-
-
 if __name__ == "__main__":
     # Load selected tables with different settings
     load_select_tables_from_database()
 
-    # load a table and select columns
-    # select_columns()
 
-    # load_entire_database()
-    # select_with_end_value_and_row_order()
-
-    # Load tables with the standalone table resource
-    #  load_standalone_table_resource()
-
-    # Load all tables from the database.
-    # Warning: The sample database is very large
-    # load_entire_database()

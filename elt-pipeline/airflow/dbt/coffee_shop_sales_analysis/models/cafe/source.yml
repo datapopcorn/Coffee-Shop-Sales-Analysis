@@ -1,0 +1,11 @@
+sources:
+  - name: coffee_shop_analysis
+    database: cloud-385312
+    schema: coffee_shop_analysis
+    tables:
+      - name: customers
+      - name: items
+      - name: payment_methods
+      - name: transactions
+      - name: transaction_items
+      

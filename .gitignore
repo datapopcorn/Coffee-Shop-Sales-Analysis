@@ -1,18 +1,25 @@
 # ignore python files
 __pycache__/
 
-# ignore env file
-.env
-
-# ignore data directory
-data/
+# ignore venv
 .venv/
 
 # ignore uv
 uv.lock
 
 # ignore terraform
-terraform/.terraform/*
-terraform/.terraform.lock.hcl
-terraform/keys/*
-terraform/terraform.tfstate
+.terraform.lock.hcl
+terraform.tfstate*
+.terraform/
+
+# ignore secrets
+secrets.toml
+
+# ignore vscode
+.vscode/
+
+logs/
+
+keys/
+
+pyproject.toml

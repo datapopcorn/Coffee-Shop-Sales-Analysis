@@ -29,7 +29,8 @@ class TransactionIn(SQLModel):
     items: list[TransactionItemIn] = Field(min_items=1)  # 至少需要一個商品
     payment_method: str = Field(max_length=50)
     location: str = Field(max_length=255)
-    transaction_date: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d"))
+    created_at: datetime = Field(default_factory=lambda: datetime.now())
+    updated_at: datetime = Field(default_factory=lambda: datetime.now())
 
     @field_validator('customer_email')
     @classmethod

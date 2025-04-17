@@ -1,0 +1,14 @@
+coffee_shop_sales_analysis:
+  outputs:
+    dev:
+      dataset: coffee_shop_analysis_dbt
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /opt/airflow/dbt/coffee_shop_sales_analysis/keys/my_creds.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: cloud-385312
+      threads: 4
+      type: bigquery
+  target: dev
