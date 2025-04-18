@@ -253,6 +253,6 @@ This project demonstrates a modern batch data pipeline using FastAPI, Airflow, d
 - [Cafe Sales Dirty Data - Kaggle](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training)
 - [dbt Documentation](https://docs.getdbt.com/)
 - [Apache Airflow](https://airflow.apache.org/)
-- [dlt Docs](https://docs.dlt.dev/)
+- [dlt Docs](https://dlthub.com/docs/intro)
 - [Terraform Docs](https://developer.hashicorp.com/terraform/docs)
 - [Streamlit](https://docs.streamlit.io/)
