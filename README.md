@@ -36,6 +36,8 @@ To simulate real-world ongoing data generation, a FastAPI service is built to em
 
 ## 🔄 Pipeline Overview
 
+![Architect Diagram](./architect_diagram.png)
+
 ### 🗃️ Historical Data Load (Initial)
 
 1. The Kaggle dataset is stored as a seed file at `dbt/seeds/cafe_old/cafe_sales_static.csv`
@@ -64,10 +66,6 @@ Scheduled to run **hourly**, this DAG defines a classic ETL sequence:
 All Python scripts are located in `elt-pipeline/airflow/scripts/`
 
 ---
-
-
----
-
 ## 🚀 How to Run
 
 ### 1. Clone the repository
@@ -115,31 +113,37 @@ AIRFLOW_UID=501
 
 ##### DLT `secrets.toml` (located in `elt-pipeline/dlt/.dlt/secrets.toml`):
 ```toml
-[sources.postgres]
-credentials.user = "coffee_user"
-credentials.password = "coffee_pass"
-credentials.database = "coffee_db"
-credentials.host = "postgres-cafe"
-credentials.port = 5432
+[sources.sql_database.credentials]
+drivername = "postgresql" # please set me up!
+database = "coffee_db" # please set me up!
+password = "coffee_pass" # please set me up!
+username = "coffee_user" # please set me up!
+host = "postgres-cafe" # please set me up!
+port = 5432 # please set me up!
 
+[sources.filesystem.credentials]
+# set google cloud storage credentials
+project_id = "your_project_id" # please set me up!
+private_key = "your_private_key" # please set me up!
+client_email = "your_client_email"
+
+[sources.filesystem]
+bucket_url = "gs://coffee_shop_analysis_bucket" # please set me up!
+
+
+[destination.filesystem]
+bucket_url = "gs://coffee_shop_analysis_bucket" # please set me up!
+
+[destination.filesystem.credentials]
+project_id = "your_project_id" # please set me up!
+private_key = "your_private_key" # please set me up!
+client_email = "your_client_email" # please set me up!
 [destination.bigquery]
-credentials = """
-{
-  "type": "service_account",
-  "project_id": "your_project_id",
-  "private_key_id": "your_private_key_id",
-  "private_key": "your_private_key",
-  "client_email": "your_client_email",
-  "client_id": "your_client_id",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "your_cert_url"
-}
-"""
-[runtime]
-log_level = "INFO"
-```
+location = "US"
+[destination.bigquery.credentials]
+roject_id = "your_project_id" # please set me up!
+private_key = "your_private_key" # please set me up!
+client_email = "your_client_email" # please set me up!
 ```
 
 
