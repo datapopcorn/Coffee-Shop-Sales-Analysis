@@ -8,28 +8,28 @@ LOAD_SCRIPT := load_sample_data.py
 # 預設目標
 .PHONY: help
 help:
-	@echo "可用的指令："
-	@echo "  make truncate  - 清空所有資料表"
-	@echo "  make load     - 載入範例資料"
-	@echo "  make reset    - 清空所有資料表並重新載入範例資料"
-	@echo "  make help     - 顯示這個說明"
+	@echo "Available commands:"
+	@echo "  make truncate - truncate all tables"
+	@echo "  make load     - load sample data"
+	@echo "  make reset    - truncate all tables and load sample data"
+	@echo "  make help     - show this help"
 
-# 清空所有資料表
+# truncate all tables
 .PHONY: truncate
 truncate:
-	@echo "🗑️ 清空所有資料表..."
+	@echo "🗑️ truncate all tables..."
 	@$(PYTHON) $(TRUNCATE_SCRIPT)
 
 # 載入範例資料
 .PHONY: load
 load:
-	@echo "📥 載入範例資料..."
+	@echo "📥 load sample data..."
 	@$(PYTHON) $(LOAD_SCRIPT)
 
 # 重置資料（清空後重新載入）
 .PHONY: reset
 reset:
-	@echo "🔄 重置資料庫..."
+	@echo "🔄 reset database..."
 	@$(PYTHON) $(TRUNCATE_SCRIPT)
 	@echo "\n"
 	@$(PYTHON) $(LOAD_SCRIPT)

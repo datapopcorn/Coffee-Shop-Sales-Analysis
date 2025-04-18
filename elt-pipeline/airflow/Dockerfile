@@ -2,7 +2,7 @@ FROM apache/airflow:2.10.5
 
 USER root
 
-# 安裝必要的系統包
+# install necessary packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     python3-pip \
@@ -10,15 +10,15 @@ RUN apt-get update && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 設置工作目錄
+# set the working directory
 WORKDIR /opt/airflow
 
-# 安裝 Python 依賴
+# install Python dependencies
 RUN uv pip install dlt[filesystem,sql-database]>=1.9.0 
 RUN uv pip install dbt-core>=1.9.4 
 RUN uv pip install dbt-bigquery==1.9.1
 RUN uv pip install dlt[bigquery,gs]>=1.9.0
-# 創建必要的目錄並設置權限
+# create necessary directories and set permissions
 RUN mkdir -p /tmp/.cache/uv && \
     mkdir -p /home/airflow/.cache/uv && \
     chown -R airflow:root /tmp/ && \
