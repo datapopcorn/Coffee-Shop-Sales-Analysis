@@ -158,6 +158,7 @@ terraform apply
 ### 4. Start FastAPI + PostgreSQL
 
 ```bash
+docker network create shared-network
 cd app
 docker compose up -d
 ```
