@@ -230,6 +230,8 @@ The dashboard is built using **Streamlit** and showcases interactive visualizati
 
 Each chart includes labels, legends, and dynamic layout for better clarity and data storytelling.
 
+Feel free to visit my streamlit app with following link
+- [My streamlit dashboard] https://coffee-shop-analysis-vis.streamlit.app/
 ---
 
 ## 🤝 Peer Review Checklist
